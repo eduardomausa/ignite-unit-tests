@@ -11,19 +11,13 @@ describe("Create User", () => {
   });
 
   it("should be able to create a new user", async () => {
-    const user = {
+    const user = await createUserUseCase.execute({
       name: "Eduardo Mausa",
       email: "eduardomausa@mail.com",
       password: "1234",
-    }
-
-    const createdUser = await createUserUseCase.execute({
-      name: user.name,
-      email: user.email,
-      password: user.password,
     });
 
-    expect(createdUser.name).toBe("Eduardo Mausa");
+    expect(user.name).toBe("Eduardo Mausa");
 
   });
 
